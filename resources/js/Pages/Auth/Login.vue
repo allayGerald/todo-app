@@ -91,9 +91,9 @@ export default {
                 <Button class="ml-4" :class="{ 'opacity-25': isBusy }" :disabled="isBusy">
                     Log in
                 </Button>
-                <a href="/register" class="ml-4 button-outline" :class="{ 'opacity-25': isBusy }" :disabled="isBusy">
+                <router-link to="/register" class="ml-4 button-outline" :class="{ 'opacity-25': isBusy }" :disabled="isBusy">
                     register
-                </a>
+                </router-link>
             </div>
         </form>
     </AuthLayout>

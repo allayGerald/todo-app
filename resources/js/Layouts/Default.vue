@@ -60,9 +60,9 @@ export default {
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="items" :active="items">
+                                <router-link to :active="items">
                                     My List
-                                </NavLink>
+                                </router-link>
                             </div>
                         </div>
 

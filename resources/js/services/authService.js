@@ -22,7 +22,7 @@ const getUser = () => {
 }
 
 const updateUser = (user) => {
-   localStorage.setItem('user', user)
+    localStorage.setItem('user', JSON.stringify(user))
 }
 
 const removeSession = () => {

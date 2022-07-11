@@ -25,4 +25,6 @@ Route::middleware(['auth:sanctum'])->group(function ()
         Route::get('/my-profile', 'show');
         Route::put('/my-profile', 'update');
     });
+
+    Route::apiResource('items', \App\Http\Controllers\ItemController::class);
 });

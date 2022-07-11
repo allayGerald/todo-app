@@ -3,31 +3,32 @@ const login = data => {
 }
 
 const setSession = data => {
-    localStorage.setItem('session', JSON.stringify(data))
+    localStorage.setItem('user', JSON.stringify(data.user))
+    localStorage.setItem('token', data.token)
 }
 
-const getSession = () => JSON.parse(sessionStorage.getItem('session'))
+const getSession = () => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    const token = localStorage.getItem('token')
+    return { user, token }
+}
 
 const getToken = () => {
-    const session = localStorage.getItem('session')
-    console.log(session)
-    if (!session) {
-        return null
-    }
-    console.log(session.token)
-    return session.token
+    return localStorage.getItem('token')
 }
 
 const getUser = () => {
-    const session = getSession()
-    if (!session) {
-        return null
-    }
-
-    return session.user
+  return JSON.parse(localStorage.getItem('user'))
 }
 
-const removeSession = () => localStorage.removeItem('session')
+const updateUser = (user) => {
+   localStorage.setItem('user', user)
+}
+
+const removeSession = () => {
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+}
 
 const logout = () => {
     axios.post('logout')
@@ -43,5 +44,6 @@ export default {
     setSession,
     getSession,
     getToken,
-    removeSession
+    removeSession,
+    updateUser
 }
